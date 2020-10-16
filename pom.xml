@@ -191,6 +191,11 @@
             <artifactId>easyexcel</artifactId>
             <version>2.2.6</version>
         </dependency>
+        <dependency>
+            <groupId>com.kotcrab.remark</groupId>
+            <artifactId>remark</artifactId>
+            <version>1.2.0</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>picture-bed</finalName>
