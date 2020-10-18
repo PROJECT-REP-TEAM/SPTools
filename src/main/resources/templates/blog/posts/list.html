@@ -31,26 +31,26 @@ layui.use(["okUtils", "okLayer"], function () {
 		return {
             tableTitle : [{
                 title: '序号',
-                minWidth : 100,
+                width : 100,
                 render: function(h, params) {
                     return h('span', params.index + (that.table.pageNo- 1) * that.table.pageSize + 1);
                 }
             },{
                 key : "category",
                 title : "分类",
-                minWidth:100
+                width:100
             },{
                 key : "title",
                 title : "标题",
-                minWidth:100
+                minWidth:260
             },{
-                key : "gmt_create",
+                key : "gmtCreate",
                 title : "创建时间",
                 minWidth:100
             },{
                 title : '操作',
                 key : 'action',
-                minWidth : 300,
+                width : 200,
                 align : 'center',
                 render : function(h, params) {
                    var functionList = [];
@@ -145,6 +145,7 @@ layui.use(["okUtils", "okLayer"], function () {
                     height: '95%',
                     success : function(dialog) {
                         dialog.vm.blog = JSON.parse(JSON.stringify(blog));
+                        dialog.vm.load();
                     },
                     yes : function(dialog) {
                         dialog.vm.acceptClick(vm);

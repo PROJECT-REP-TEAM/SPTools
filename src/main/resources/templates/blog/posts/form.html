@@ -17,8 +17,7 @@
     </template>
     <template>
         <i-input placeholder="类型"  v-model="blog.category"  style="width: 10%"></i-input>
-        <i-input placeholder="标题"  v-model="blog.title"  style="width: 40%"></i-input>
-        <i-input placeholder="首图地址"  v-model="blog.firstPicture"  style="width: 40%"></i-input>
+        <i-input placeholder="标题"  v-model="blog.title"  style="width: 60%"></i-input>
     </template>
     <div id="editormd" style="margin-top:10px">
         <textarea style="display:none;">
@@ -38,13 +37,14 @@ var vm = new Vue({
     data:{
         blog:{},
         okUtils:null,
-        okLayer:null
+        okLayer:null,
+        action:''
     },
     methods: {
          acceptClick : function(dialog){
-             vm.article.content = editor.getMarkdown();
+             vm.blog.content = editor.getMarkdown();
              vm.okUtils.ajaxCloud({
-                url:"/blog/crawl/save",
+                url:"/blog/posts/save",
                 json:true,
                 param : vm.blog,
                 success : function(result) {
