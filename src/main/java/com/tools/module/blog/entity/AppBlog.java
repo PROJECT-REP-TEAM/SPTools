@@ -1,4 +1,4 @@
-package com.tools.module.app.entity;
+package com.tools.module.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tools.common.model.PageBean;
@@ -24,32 +24,38 @@ public class AppBlog extends PageBean implements Serializable {
     */
     @Column(name = "category")
     private String category;
-   /**
+    /**
     * 标题
     */
     @Column(name = "title")
     private String title;
-   /**
+    /**
     * 内容
     */
    @Lob
    @Column(name = "content")
    private String content;
-   /**
+    /**
     * 首图
     */
     @Column(name = "first_picture")
     private String firstPicture;
-   /**
+    /**
     * 创建时间
     */
     @Column(name = "gmt_create")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Timestamp gmtCreate;
-   /**
+    /**
     * 修改时间
     */
     @Column(name = "gmt_modified")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Timestamp gmtModified;
+
+    /**
+     * 原文地址
+     */
+    @Column(name = "url")
+    private String url;
 }
