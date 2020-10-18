@@ -55,18 +55,15 @@ var vm = new Vue({
             });
          },
          crawl:function(){
-             layui.use(["okUtils", "okLayer"], function () {
-                 vm.okUtils = layui.okUtils;
-                 vm.okLayer = layui.okLayer;
-                 vm.okUtils.ajaxCloud({
-                    url:"/blog/posts/crawl",
-                    close: false,
-                    param : {url:vm.blog.url},
-                    success : function(result) {
-                        vm.blog = result.msg;
-                        vm.load();
-                    }
-                });
+             vm.okUtils.ajaxCloud({
+                url:"/blog/posts/crawl",
+                close: false,
+                param : {url:vm.blog.url},
+                success : function(result) {
+                    vm.blog.title = result.msg.title;
+                    vm.blog.content = result.msg.content;
+                    vm.load();
+                }
              });
          },
          load:function(){
@@ -74,7 +71,10 @@ var vm = new Vue({
          }
     },
     created: function() {
-
+        layui.use(["okUtils", "okLayer"], function () {
+             vm.okUtils = layui.okUtils;
+             vm.okLayer = layui.okLayer;
+        });
     }
 })
 var editor;
