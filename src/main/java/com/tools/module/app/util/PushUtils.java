@@ -23,12 +23,22 @@ public class PushUtils {
         this.push = push;
     }
 
+    /**
+     * 推送消息 需要配置 push 参数
+     * @param notice
+     * @return
+     */
     public String send(AppNotice notice){
-        RestTemplate client = new RestTemplate();
-        MultiValueMap<String, Object> paramMap = new LinkedMultiValueMap<>();
-        paramMap.add("content", notice.getContent());
-        paramMap.add("channel", notice.getChannel()==null?"SPTools":notice.getChannel());
-        paramMap.add("appkey", push.getCommonKey());
-        return client.postForObject(push.getUrl(), paramMap , String.class);
+        try{
+            RestTemplate client = new RestTemplate();
+            MultiValueMap<String, Object> paramMap = new LinkedMultiValueMap<>();
+            paramMap.add("content", notice.getContent());
+            paramMap.add("channel", notice.getChannel()==null?"SPTools":notice.getChannel());
+            paramMap.add("appkey", push.getCommonKey());
+            return client.postForObject(push.getUrl(), paramMap , String.class);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

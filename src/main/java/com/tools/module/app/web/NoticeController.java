@@ -35,18 +35,15 @@ public class NoticeController extends AbstractController {
      */
     @PostMapping("/save")
     public Result save(@RequestBody AppNotice notice){
-        String msg =  pushUtils.send(notice);
-        JSONObject json = new JSONObject(msg);
-        String code = json.get("code").toString();
-        if("200".equals(code)){
-            SysUser user = ShiroUtils.getUserEntity();
-            notice.setUserCreate(user.getUserId());
-            notice.setNickname(user.getNickname());
-            noticeService.save(notice);
-            return Result.ok();
-        }else{
-            return Result.error();
-        }
+        SysUser user = ShiroUtils.getUserEntity();
+        notice.setUserCreate(user.getUserId());
+        notice.setNickname(user.getNickname());
+        noticeService.save(notice);
+        /**
+         * 消息推送 请自行配置 goeasy 参数
+         */
+        pushUtils.send(notice);
+        return Result.ok();
     }
     /**
      * 列表
