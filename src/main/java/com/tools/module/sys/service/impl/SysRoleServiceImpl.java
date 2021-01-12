@@ -69,7 +69,7 @@ public class SysRoleServiceImpl implements SysRoleService {
         SysRole sysRole =
                 dynamicQuery.nativeQuerySingleResult(SysRole.class,nativeSql,new Object[]{role.getRoleSign()});
         if(sysRole!=null){
-            if(!sysRole.getRoleSign().equals(role.getRoleSign())){
+            if(!sysRole.getRoleId().equals(role.getRoleId())){
                 return Result.error("角色代码重复");
             }
         }else{
