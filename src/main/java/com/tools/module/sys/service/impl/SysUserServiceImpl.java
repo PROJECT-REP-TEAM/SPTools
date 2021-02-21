@@ -47,6 +47,11 @@ public class SysUserServiceImpl implements SysUserService {
         user.setGmtModified(DateUtils.getTimestamp());
         user.setUserIdCreate(ShiroUtils.getUserId());
         sysUserRepository.saveAndFlush(user);
+        /**
+         * 删除之前的角色关系
+         */
+        nativeSql = "DELETE FROM sys_user_role WHERE user_id=?";
+        dynamicQuery.nativeExecuteUpdate(nativeSql,new Object[]{user.getUserId()});
         List<Object> roleList = user.getRoleIdList();
         if(roleList!=null){
             roleList.forEach(roleId->{
