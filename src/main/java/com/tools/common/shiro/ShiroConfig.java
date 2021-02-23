@@ -157,7 +157,6 @@ public class ShiroConfig {
     }
     /**
      * 限制同一账号登录同时登录人数控制
-     *
      * @return
      */
     @Bean
@@ -166,7 +165,7 @@ public class ShiroConfig {
         kickoutSessionControlFilter.setCacheManager(cacheManager());
         kickoutSessionControlFilter.setSessionManager(sessionManager());
         kickoutSessionControlFilter.setKickoutAfter(false);
-        kickoutSessionControlFilter.setMaxSession(10);
+        kickoutSessionControlFilter.setMaxSession(1);
         kickoutSessionControlFilter.setKickoutUrl("/login.html");
         return kickoutSessionControlFilter;
     }

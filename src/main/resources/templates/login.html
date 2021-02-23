@@ -110,5 +110,13 @@
                 }
             }
         </script>
+        <script >
+            window.onload=function(){
+                if (window != top) {
+                    alert("您的账号在另一台设备上登录，若非本人操作，请立即修改密码")
+                    top.location.href = location.href;
+                }
+            }
+        </script>
     </body>
 </html>
