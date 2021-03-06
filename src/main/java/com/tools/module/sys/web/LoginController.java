@@ -8,6 +8,8 @@ import com.tools.module.app.util.CaptchaUtils;
 import com.tools.module.sys.entity.SysUser;
 import com.tools.module.sys.service.SysUserService;
 import io.swagger.annotations.Api;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.subject.Subject;
@@ -50,7 +52,11 @@ public class LoginController {
             }else{
                 return Result.error("人机验证失败");
             }
-        }catch (Exception e) {
+        }catch (UnknownAccountException e) {
+            return Result.error("账户不存在");
+        }catch (IncorrectCredentialsException e) {
+            return Result.error("密码不正确");
+        } catch (Exception e) {
             e.printStackTrace();
             return Result.error("登录失败");
         }
