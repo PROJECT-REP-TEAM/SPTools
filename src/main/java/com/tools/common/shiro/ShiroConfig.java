@@ -152,7 +152,7 @@ public class ShiroConfig {
     public RedisSessionDAO redisSessionDAO() {
         RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
         redisSessionDAO.setRedisManager(redisManager());
-        redisSessionDAO.setKeyPrefix("shiro:session:cloudbed:");
+        redisSessionDAO.setKeyPrefix("shiro:session:SPAdmin:");
         return redisSessionDAO;
     }
     /**

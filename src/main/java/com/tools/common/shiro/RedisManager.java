@@ -2,7 +2,7 @@ package com.tools.common.shiro;
 
 
 import org.crazycake.shiro.IRedisManager;
-import org.crazycake.shiro.WorkAloneRedisManager;
+import org.crazycake.shiro.common.WorkAloneRedisManager;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
