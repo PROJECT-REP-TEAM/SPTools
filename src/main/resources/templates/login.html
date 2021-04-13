@@ -12,7 +12,7 @@
     <body class="page-fill">
         <div class="page-fill" id="login">
             <form class="layui-form">
-                <div class="login_face"><img src="../images/logo.png"></div>
+                <div class="login_face"><img th:src="@{/images/logo.png}"></div>
                 <div class="layui-form-item input-item">
 <!--                    <label for="username">用户名</label>-->
                     <input type="text" lay-verify="required" value="admin" name="username" placeholder="请输入账号" autocomplete="off" id="username" class="layui-input">
@@ -25,7 +25,7 @@
                     <button type="button" id="TencentCaptcha" data-appid="2042633230" data-cbfn="callback" class="layui-btn layui-block" >登录</button>
                 </div>
                 <div id="wechat" style="display:none">
-                    <img src="/images/wechat.jpg">
+                    <img th:src="@{/images/wechat.jpg}">
                 </div>
 <!--               <div class="login-link">-->
 <!--                  <a href="./register.html">注册</a>-->
