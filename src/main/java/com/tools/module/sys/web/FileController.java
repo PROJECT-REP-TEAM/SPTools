@@ -93,6 +93,7 @@ public class FileController {
      */
     @RequestMapping(value = "getContent", method = RequestMethod.POST)
     public Result getContent(String filePath) throws FileNotFoundException {
+        filePath = filePath.replace(".","");
         String path = ResourceUtils.getURL("classpath:").getPath();
         String content = FileUtil.readUtf8String(path+filePath);
         return Result.ok(content);
@@ -103,6 +104,7 @@ public class FileController {
      */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public Result save(String filePath, String content) throws FileNotFoundException {
+        filePath = filePath.replace(".","");
         String path = ResourceUtils.getURL("classpath:").getPath();
         /**
          * 生产环境自行解除
