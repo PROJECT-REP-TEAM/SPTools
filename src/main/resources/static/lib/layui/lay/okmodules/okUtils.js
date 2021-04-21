@@ -44,7 +44,7 @@ layui.define(["layer"], function (exprots) {
                 close: true,
                 json:false
             };
-            options.url = okUtils.isFrontendBackendSeparate ? okUtils.baseUrl + options.url : options.url
+            options.url = okUtils.isFrontendBackendSeparate ? okUtils.baseUrl + options.url : ctxPath + options.url
             var options = $.extend(defaults, options);
             var loadIndex;
             var $layer = okUtils.getLayer();
@@ -98,7 +98,7 @@ layui.define(["layer"], function (exprots) {
             var loadIndex;
             var $layer = okUtils.getLayer();
             $.ajax({
-                url: okUtils.isFrontendBackendSeparate ? okUtils.baseUrl + url : url,
+                url: okUtils.isFrontendBackendSeparate ? okUtils.baseUrl + url :ctxPath + url,
                 type: type || "get",
                 data: param || {},
                 dataType: "json",

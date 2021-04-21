@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <title>妹子图</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" th:href="@{/css/oksub.css}">
-    <link rel="stylesheet" th:href="@{/lib/iview/styles/iview.css}">
-</head>
+<head th:replace="common/head :: head(link)"/>
 <body>
 <div id="app" class="ok-body" v-cloak>
     <!--模糊搜索区域-->
@@ -27,10 +21,7 @@
         <Page  style="float: right;" :current="image.pageNumber" :total="tableSize" :page-size="image.pageSize"  @on-change="changePage" @on-page-size-change="changePageSize" show-elevator show-sizer show-total></Page>
     </template>
 </div>
-<!--js逻辑-->
-<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
-<script type="text/javascript" th:src="@{/lib/vue/vue.min.js}" ></script>
-<script type="text/javascript" th:src="@{/lib/iview/iview.min.js}"></script>
+<div th:replace="common/foot :: foot(script)"></div>
 <script th:inline="none">
 layui.use(["okUtils", "okLayer"], function () {
     var okUtils = layui.okUtils;
