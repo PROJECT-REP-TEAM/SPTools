@@ -87,7 +87,7 @@ JDK1.8、Maven、Mysql、Redis、IntelliJ IDEA、minio、fastdfs、OpenOffice
 
 - 配置完成，运行`Application`中的 `main `方法。
 
-- 测试账号：admin 密码：111111
+- 测试账号：admin 密码：admin2020
 
 - 最后如果不想安装各种依赖，请切换分支到纯净版
 
